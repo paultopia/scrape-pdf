@@ -1,7 +1,29 @@
 var links = document.getElementsByTagName("a");
+
+
+function getlink(link) {
+    var x = new XMLHttpRequest();
+    x.open("GET", link, true);
+    x.onload = function (e) {
+        if (x.readyState === 4) {
+            if (x.status === 200) {
+                console.log(x.responseText);
+            } else {
+                console.error(x.statusText);
+            }
+        }
+    };
+    x.onerror = function (e) {
+        console.error(x.statusText);
+    };
+    x.send(null);
+}
+
 for (i = 0, len = links.length; i < len; i++) {
-    links[i].addEventListener("click", function() {
-        console.log("clicked a link");
+    var l = links[i]
+    l.addEventListener("click", function() {
+        console.log(l.href);
+        console.log(getlink(l.href))
     }, false);
 };
 
