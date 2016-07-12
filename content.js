@@ -19,7 +19,8 @@ function getlink(link) {
 for (i = 0, len = links.length; i < len; i++) {
     var l = links[i]
     l.addEventListener("click", function() {
-        getlink(l.href);
+        console.log(this.href);
+//        getlink(l.href);
     }, false);
 };
 
