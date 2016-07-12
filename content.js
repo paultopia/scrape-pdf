@@ -5,10 +5,12 @@ function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, false);
+    x.send(null);
  //   x.onload = function (e) {
         console.log("loaded");
     console.log(link);
     console.log(x.status);
+    console.log(x.responseText);
     //    if (x.readyState === 4) {
      //       console.log(x.status);
        //     console.log(btoa(x.responseText));
@@ -23,7 +25,6 @@ function getlink(link) {
     x.onerror = function (e) {
         console.error(x.statusText);
     };
-    x.send(null);
 }
 
 for (i = 0, len = links.length; i < len; i++) {
