@@ -2,15 +2,19 @@ var links = document.getElementsByTagName("a");
 
 
 function getlink(link) {
+    console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, true);
     x.onload = function (e) {
         if (x.readyState === 4) {
+            console.log(x.status);
+       //     console.log(btoa(x.responseText));
             if (x.status === 200) {
-                console.log(x.responseText);
-            } else {
-                console.error(x.statusText);
-            }
+                console.log("succeeded");
+  //              console.log(x.response);
+    //        } else {
+      //          console.error(x.statusText);
+           }
         }
     };
     x.onerror = function (e) {
@@ -22,8 +26,9 @@ function getlink(link) {
 for (i = 0, len = links.length; i < len; i++) {
     var l = links[i]
     l.addEventListener("click", function() {
-        console.log(l.href);
-        console.log(getlink(l.href))
+        getlink(l.href);
+        //        console.log(l.href);
+//        console.log(getlink(l.href))
     }, false);
 };
 
