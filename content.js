@@ -5,7 +5,7 @@ function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, false);
-  //  x.responseType = 'blob';
+  x.responseType = 'blob';
     x.send(null);
     console.log("loaded");
     console.log(link);
