@@ -5,12 +5,14 @@ function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, false);
+  //  x.responseType = 'blob';
     x.send(null);
     console.log("loaded");
     console.log(link);
     console.log(x.status);
-    console.log(x.responseText);
-   console.log(btoa(x.responseText));
+    console.log(x.response);
+
+   console.log(btoa(x.response));
     x.onerror = function (e) {
         console.error(x.statusText);
     };
