@@ -6,12 +6,13 @@ function getlink(link) {
     var x = new XMLHttpRequest();
     x.open("GET", link, true);
     x.onload = function (e) {
+        console.log("loaded");
         console.log(link + x.status);
     //    if (x.readyState === 4) {
      //       console.log(x.status);
        //     console.log(btoa(x.responseText));
       //      if (x.status === 200) {
-                console.log("succeeded");
+       //         console.log("succeeded");
   //              console.log(x.response);
     //        } else {
       //          console.error(x.statusText);
