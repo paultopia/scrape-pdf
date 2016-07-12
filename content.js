@@ -4,10 +4,11 @@ var links = document.getElementsByTagName("a");
 function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
-    x.open("GET", link, true);
-    x.onload = function (e) {
+    x.open("GET", link, false);
+ //   x.onload = function (e) {
         console.log("loaded");
-        console.log(link + x.status);
+    console.log(link);
+    console.log(x.status);
     //    if (x.readyState === 4) {
      //       console.log(x.status);
        //     console.log(btoa(x.responseText));
@@ -17,7 +18,7 @@ function getlink(link) {
     //        } else {
       //          console.error(x.statusText);
        //    }
-        }
+     //   }
    // };
     x.onerror = function (e) {
         console.error(x.statusText);
