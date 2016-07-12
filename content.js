@@ -1,5 +1,8 @@
 var links = document.getElementsByTagName("a");
 
+function transform(blob) {
+    return btoa(String.fromCharCode.apply(null, new Uint8Array(blob)));
+}
 
 function getlink(link) {
     console.log("looking for link");
@@ -10,9 +13,10 @@ function getlink(link) {
         console.log("loaded");
         console.log(link);
         console.log(x.status);
-        window.location.href = link;
         console.log(x.response);
-        console.log(btoa(x.response));
+        console.log(transform(x.response));
+        window.location.href = link;
+        //  console.log(btoa(x.response));
     };
     
 
