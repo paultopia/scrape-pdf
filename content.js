@@ -10,7 +10,7 @@ function getlink(link) {
     console.log(link);
     console.log(x.status);
     console.log(x.responseText);
-   // console.log(btoa(x.responseText));
+   console.log(btoa(x.responseText));
     x.onerror = function (e) {
         console.error(x.statusText);
     };
