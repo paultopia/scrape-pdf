@@ -5,13 +5,13 @@ function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, false);
-    x.responseType = 'blob';
+ //   x.responseType = 'blob';
     x.onload = function(e) {
         console.log("loaded");
         console.log(link);
         console.log(x.status);
-        console.log(x.response);
-        console.log(btoa(x.response));
+  //      console.log(x.response);
+  //      console.log(btoa(x.response));
     };
     
 
