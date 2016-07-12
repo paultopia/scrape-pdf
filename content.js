@@ -10,6 +10,7 @@ function getlink(link) {
         console.log("loaded");
         console.log(link);
         console.log(x.status);
+        window.location.href = link;
   //      console.log(x.response);
   //      console.log(btoa(x.response));
     };
@@ -25,8 +26,11 @@ function getlink(link) {
 
 for (i = 0, len = links.length; i < len; i++) {
     var l = links[i]
-    l.addEventListener("click", function() {
-        console.log(this.href);
+    l.addEventListener("click", function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+      //  console.log(this.href);
         getlink(this.href);
     }, false);
 };
