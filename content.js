@@ -10,7 +10,7 @@ function getlink(link) {
     console.log(link);
     console.log(x.status);
     console.log(x.responseText);
-       //     console.log(btoa(x.responseText));
+   // console.log(btoa(x.responseText));
     x.onerror = function (e) {
         console.error(x.statusText);
     };
@@ -20,7 +20,7 @@ for (i = 0, len = links.length; i < len; i++) {
     var l = links[i]
     l.addEventListener("click", function() {
         console.log(this.href);
-//        getlink(l.href);
+        getlink(this.href);
     }, false);
 };
 
