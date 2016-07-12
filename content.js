@@ -4,8 +4,8 @@ var links = document.getElementsByTagName("a");
 function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
-    x.open("GET", link, false);
- //   x.responseType = 'blob';
+    x.open("GET", link, true);
+  //  x.responseType = 'blob';
     x.onload = function(e) {
         console.log("loaded");
         console.log(link);
