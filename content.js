@@ -5,17 +5,22 @@ function getlink(link) {
     console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, false);
-  x.responseType = 'blob';
-    x.send(null);
-    console.log("loaded");
-    console.log(link);
-    console.log(x.status);
-    console.log(x.response);
+    x.responseType = 'blob';
+    x.onload = function(e) {
+        console.log("loaded");
+        console.log(link);
+        console.log(x.status);
+        console.log(x.response);
+        console.log(btoa(x.response));
+    };
+    
 
-   console.log(btoa(x.response));
     x.onerror = function (e) {
         console.error(x.statusText);
     };
+
+    x.send(null);
+
 }
 
 for (i = 0, len = links.length; i < len; i++) {
