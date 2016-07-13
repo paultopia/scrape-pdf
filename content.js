@@ -2,31 +2,28 @@ var links = document.getElementsByTagName("a");
 
 function transform(blob) {
     return btoa(String.fromCharCode.apply(null, new Uint8Array(blob)));
-}
+};
 
 function getlink(link) {
-    console.log("looking for link");
     var x = new XMLHttpRequest();
     x.open("GET", link, true);
-    x.responseType = 'blob';
+    x.responseType = 'arraybuffer';
     x.onload = function(e) {
-        console.log("loaded");
-        console.log(link);
-        console.log(x.status);
+        console.log("Raw response:");
         console.log(x.response);
+        console.log("Direct transformation:");
+        console.log(btoa(x.response));
+        console.log("Mysterious thing I got from SO:");
         console.log(transform(x.response));
         window.location.href = link;
-        //  console.log(btoa(x.response));
     };
-    
 
     x.onerror = function (e) {
         console.error(x.statusText);
     };
 
     x.send(null);
-
-}
+};
 
 for (i = 0, len = links.length; i < len; i++) {
     var l = links[i]
@@ -34,7 +31,6 @@ for (i = 0, len = links.length; i < len; i++) {
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
-      //  console.log(this.href);
         getlink(this.href);
     }, false);
 };
